@@ -1,0 +1,21 @@
+di_forum_homepage:
+    path:     /{page}
+    defaults: { _controller: DIForumBundle:Default:index, page: 1 }
+    requirements:
+        page: \d*
+
+di_forum_addsubject:
+    path:     /addsubject
+    defaults: { _controller: DIForumBundle:Default:addsubject }
+
+di_forum_viewsubject:
+    path:     /viewsubject/{id}
+    defaults: { _controller: DIForumBundle:Default:viewsubject }
+    requirements:
+        id: \d+
+
+di_forum_editanswer:
+    path:     /editanswer/{id}
+    defaults: { _controller: DIForumBundle:Default:editanswer }
+    requirements:
+        id: \d+

@@ -1,0 +1,9 @@
+di_forum:
+    resource: "@DIForumBundle/Resources/config/routing.yml"
+    prefix:   /forum/{_locale}
+    requirements:
+        _locale: fr|en
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

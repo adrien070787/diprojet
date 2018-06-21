@@ -1,0 +1,45 @@
+{% extends "DIForumBundle::base.html.twig" %}
+
+{% block title %}{{ parent() }}Accueil{% endblock %}
+
+{% block body_forum %}
+
+    {% for label, messages in app.flashes(['success', 'info']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+
+    <div class="row">
+        Appropriez vous cet espace de discussion
+    </div>
+
+    <a class="btn btn-default" href="">
+        <i class="glyphicon glyphicon-edit"></i>
+        Nouveau sujet
+    </a>
+
+    <div class="row">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Sujet</th>
+                    <th>Auteur</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for subject in listesubjects %}
+                    <tr>
+                        <td>{{ subject.title }}</td>
+                        <td>{{ subject.author }}</td>
+                        <td>{{ subject.date|date('d/m/Y') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
